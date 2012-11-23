@@ -1,0 +1,5 @@
+<h1>Users</h1>
+<p><% @users.each do |u|%>
+   <%= u.email %> <%= link_to 'Destroy', u %><br />
+   <% end %>
+</p>

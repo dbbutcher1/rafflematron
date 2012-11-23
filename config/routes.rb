@@ -1,6 +1,17 @@
 Rafflematron::Application.routes.draw do
+  get "user/index"
+
+  get "users_controller/users"
+
+  devise_for :admins
+
+  get "raffle/home"
+
+  get "raffle/create"
+
   devise_for :users
   devise_for :Users
+  resource :user
 
   get "users/index"
 
