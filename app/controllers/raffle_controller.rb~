@@ -1,5 +1,6 @@
 class RaffleController < ApplicationController
   def create
+    @raffle = Raffles.new
   end
 
   def home

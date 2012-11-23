@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Name: MyString
+  Prize: MyString
+  Start: 2012-11-23
+  end: 2012-11-23
+
+two:
+  Name: MyString
+  Prize: MyString
+  Start: 2012-11-23
+  end: 2012-11-23

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122164543) do
+ActiveRecord::Schema.define(:version => 20121123202042) do
+
+  create_table "raffles", :force => true do |t|
+    t.string   "Name"
+    t.string   "Prize"
+    t.datetime "Start"
+    t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

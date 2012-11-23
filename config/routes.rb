@@ -1,4 +1,6 @@
 Rafflematron::Application.routes.draw do
+  resources :raffles
+
   get "user/index"
 
   get "users_controller/users"

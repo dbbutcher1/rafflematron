@@ -1,0 +1,7 @@
+<h1>New raffle</h1>
+
+<% if current_user.has_role? :admin %>
+<%= render 'form' %>
+
+<%= link_to 'Back', raffles_path %>
+<% end %>
