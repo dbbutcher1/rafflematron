@@ -1,3 +1,3 @@
 class Raffle < ActiveRecord::Base
-  attr_accessible :Name, :Prize, :Start, :end
+  attr_accessible :id, :name
 end

@@ -1,13 +1,13 @@
 require 'test_helper'
 
 class RaffleControllerTest < ActionController::TestCase
-  test "should get create" do
-    get :create
+  test "should get name" do
+    get :name
     assert_response :success
   end
 
-  test "should get home" do
-    get :home
+  test "should get type" do
+    get :type
     assert_response :success
   end
 

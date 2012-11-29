@@ -1,15 +1,16 @@
 Rafflematron::Application.routes.draw do
-  resources :raffles
+
+  match "raffle/name" => "raffle#name", :via => :get, :as => "raffle_name"
+  match "raffle/type" => "raffle#type", :via => :post, :as => "raffle_type"
+
+  resources :raffle do
+  end
 
   get "user/index"
 
   get "users_controller/users"
 
   devise_for :admins
-
-  get "raffle/home"
-
-  get "raffle/create"
 
   devise_for :users
   devise_for :Users

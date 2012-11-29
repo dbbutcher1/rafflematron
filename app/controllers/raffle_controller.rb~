@@ -1,8 +1,12 @@
 class RaffleController < ApplicationController
-  def create
-    @raffle = Raffles.new
+  def index
   end
 
-  def home
+  def name
+    @raffle = Raffle.new
+  end
+
+  def type
+    @raffle = Raffle.create!(:name => params[:name])
   end
 end

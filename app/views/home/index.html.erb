@@ -11,11 +11,16 @@
       </div>
       <div class = "row">
         <div class = "span3 offset1">
-          <h2>Another great test</h2>
-          <p>Brought to you by:</p>        
+          <h2>Ongoing Raffles</h2>
+          <p></p>        
         </div>
         <div class = "span3 offset1">
-          <h2>Ongoing raffles</h2>
+          <h2>Create a Raffle</h2>
+	  <% if user_signed_in? %>
+          <p><a class = "btn" href = "#">Create Raffle</a></p>
+	  <% else %>
+	  <p><a class = "btn" href = "../users/sign_in">Sign in</a></p>
+	  <% end %>
         </div>
         <div class = "span3 offset1">
           <h2>Enter Here</h2>

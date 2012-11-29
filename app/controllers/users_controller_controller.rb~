@@ -11,4 +11,5 @@ class UsersControllerController < ApplicationController
       format.html { redirect_to microposts_url }
       format.json { head :no_content }
     end
+  end
 end
