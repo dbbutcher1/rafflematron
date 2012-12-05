@@ -2,6 +2,8 @@ Rafflematron::Application.routes.draw do
 
   match "raffle/name" => "raffle#name", :via => :get, :as => "raffle_name"
   match "raffle/type" => "raffle#type", :via => :post, :as => "raffle_type"
+  match "raffle/prize" => "raffle#prize", :via => :post, :as => "raffle_prize"
+  match "raffle/:id" => "raffle#prize"
 
   resources :raffle do
   end

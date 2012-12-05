@@ -3,7 +3,6 @@ class CreateRaffles < ActiveRecord::Migration
     create_table :raffles do |t|
       t.integer :id
       t.string :name
-      t.integer :prizes
 
       t.timestamps
     end

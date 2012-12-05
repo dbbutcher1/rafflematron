@@ -1,5 +1,6 @@
 <%= form_for @raffle, :method => "post", :url => raffle_type_path do |f| %>
-  <%= f.label "Name of raffle: " %>
+  <%= f.label :name, "Name of raffle: " %>
   <%= f.text_field :name %> <br />
+  <%= f.text_field :id %>
   <%= f.submit "Create" %>
 <% end %>

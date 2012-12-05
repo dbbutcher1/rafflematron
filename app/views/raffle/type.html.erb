@@ -1,1 +1,7 @@
-<%= @raffle.name %>
+<h1><%= @raffle.name %></h1>
+<p> unique id: <%= @raffle.id %></p>
+<%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
+  <%= r.label "How many prizes?" %>
+  <%= r.text_field :prizes %> <br />
+  <%= r.submit "Create" %>
+<% end %>
