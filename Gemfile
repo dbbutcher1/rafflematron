@@ -5,6 +5,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
+gem 'paperclip', '~> 3.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

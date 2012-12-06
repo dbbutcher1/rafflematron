@@ -1,10 +1,12 @@
 <h1><%= @raffle.name %></h1>
 <p>Unique id: <%= @raffle.id %></p>
 <p>Prizes: <%= @raffle.prizes %></p>
-<%= form_tag "/completed" do %>
+<%= @raffle.entries %>
+<%= form_tag "/raffle/completed", :method => "post" do %>
   <% @raffle.prizes.times do |r| %>
     <%= label_tag(:q, "Prize #{r+1}:") %>
     <%= text_field_tag(:prize) %>
   <% end %>
+  <br />
   <%= submit_tag("Finish") %>
 <% end %>

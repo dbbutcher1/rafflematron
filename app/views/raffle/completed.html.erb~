@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1><%= @raffle.name %></h1>
+<%= @raffle.id %>
+<%= @raffle.prizes %>
+</body>
+</html>
