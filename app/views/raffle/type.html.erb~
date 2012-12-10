@@ -3,6 +3,6 @@
 <%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
   <%= r.label "How many prizes?" %>
   <%= r.text_field :prizes %> <br />
-  <%= select_tag(:entries, options_for_select(["1"], "1")) %> <br />
+  <%= r.select(:entries, options_for_select(["1"], "1")) %> <br />
   <%= r.submit "Create" %>
 <% end %>

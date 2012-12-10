@@ -10,16 +10,19 @@ class RaffleController < ApplicationController
   def type
     @raffle = Raffle.create!(params[:raffle])
     @@raffle_id = @raffle.id
-    @raffle.prizes = 1
+    @raffle.num_prizes = 1
     @raffle.save
   end
 
   def prize
     @raffle = Raffle.find(@@raffle_id)
-    @raffle.assign_attributes(params[:raffle], params[:entries])
+    @raffle.assign_attributes(params[:raffle], params[:raffle]) 
   end 
   
   def completed
     @raffle = Raffle.find(@@raffle_id)
+    @prizes = Prize.new
+    @prizes.prize = params[:prize]
+    @prizes.save
   end
 end

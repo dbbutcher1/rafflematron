@@ -4,7 +4,8 @@
 </head>
 <body>
 <h1><%= @raffle.name %></h1>
-<%= @raffle.id %>
-<%= @raffle.prizes %>
+<p>Unique id: <%= @raffle.id %></p>
+<p>Number of prizes: <%= @raffle.num_prizes %></p>
+<%= @prizes.prize %>
 </body>
 </html>

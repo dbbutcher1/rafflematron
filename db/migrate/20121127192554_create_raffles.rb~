@@ -4,6 +4,7 @@ class CreateRaffles < ActiveRecord::Migration
       t.integer :id
       t.string :name
       t.integer :prizes
+      t.integer :entries
 
       t.timestamps
     end

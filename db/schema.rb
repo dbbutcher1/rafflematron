@@ -11,16 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206173300) do
+ActiveRecord::Schema.define(:version => 20121210175056) do
 
   create_table "prizes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "prize"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "raffles", :force => true do |t|
     t.string   "name"
-    t.integer  "prizes"
+    t.integer  "num_prizes"
     t.integer  "entries"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
