@@ -4,9 +4,13 @@ Rafflematron::Application.routes.draw do
   match "raffle/type" => "raffle#type", :via => :post, :as => "raffle_type"
   match "raffle/prize" => "raffle#prize", :via => :post, :as => "raffle_prize"
   match "raffle/completed" => "raffle#completed", :via => :post, :as => "raffle_completed"
+  match "entries/enter" => "entries#enter", :via => :get, :as => "entries_enter"
+  match "entries/confirm" => "entries#confirm", :via => :post, :as => "entries_confirm"
 
   resources :raffle do
   end
+
+  resources :entries
 
   get "user/index"
 
