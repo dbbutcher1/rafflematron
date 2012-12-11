@@ -2,7 +2,7 @@
 <html>
 <body>
 <%= @raffles.each do |r| %>
-<%= r.name %> <br />
+<%= r.name %>
 <% end %>
 </body>
 </html>

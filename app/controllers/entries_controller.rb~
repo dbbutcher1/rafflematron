@@ -1,2 +1,12 @@
 class EntriesController < ApplicationController
+  def index
+    @raffles = Raffle.all
+  end
+
+  def enter
+  end
+  
+  def confirm
+    @entry = Entries.create!(params[:name], params[:email])
+  end
 end

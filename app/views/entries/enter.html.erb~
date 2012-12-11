@@ -4,8 +4,12 @@
 <h1>Enter</h1>
 </head>
 <body>
-<%= form_tag "/entries/comfirm", :method => :post do %>
-
+<%= form_tag "/entries/confirm", :method => :post do %>
+<%= label_tag(:q, "Name:") %>
+<%= text_field_tag(:name) %> <br />
+<%= label_tag(:r, "Email:") %>
+<%= text_field_tag :email %> <br />
+<%= submit_tag "Enter" %>
 <% end %>
 </body>
 </html>

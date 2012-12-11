@@ -2,7 +2,7 @@
 <p>Unique id: <%= @raffle.id %></p>
 <p>Prizes: <%= @raffle.num_prizes %></p>
 <p>Entries: <%= @raffle.entries %></p>
-<%= form_tag "/raffle/completed", :method => "post", :html => {:multipart => true} do %>
+<%= form_tag "/raffle/completed", :method => "post", :multipart => true do %>
   <% @raffle.num_prizes.times do |r| %>
     <%= label_tag(:q, "Prize #{r+1}:") %>
     <%= text_field_tag(:prize) %> <br />

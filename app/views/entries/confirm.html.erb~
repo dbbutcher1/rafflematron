@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
 <body>
-<%= @entry.name %>
-<%= @entry.email %>
 </body>
 </html>

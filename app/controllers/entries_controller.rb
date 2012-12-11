@@ -7,5 +7,6 @@ class EntriesController < ApplicationController
   end
   
   def confirm
+    @entry = Entries.create!(:name => params[:name], :email => params[:email])
   end
 end

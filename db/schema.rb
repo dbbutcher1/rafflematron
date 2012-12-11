@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20121210193446) do
   create_table "raffles", :force => true do |t|
     t.string   "name"
     t.integer  "num_prizes"
-    t.integer  "entries"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "num_entries"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|
