@@ -25,5 +25,6 @@ class RaffleController < ApplicationController
     @prizes.prize = params[:prize]
     @prizes.photo = params[:photo]
     @prizes.save
+    @entry = Entries.create!(:raffle_id => @@raffle_id)
   end
 end
