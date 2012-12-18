@@ -5,14 +5,14 @@ class EntriesController < ApplicationController
   end
 
   def enter
-    @entry = Entries.new
+    @entry = Entry.new
     @entry.raffle_id = params[:raffle_id]
     @entry.save
     @@entry_id = @entry.id
   end
   
   def confirm
-    @entry = Entries.find(@@entry_id)
+    @entry = Entry.find(@@entry_id)
     @entry.assign_attributes(:name => params[:name], :email => params[:email])
   end
 end

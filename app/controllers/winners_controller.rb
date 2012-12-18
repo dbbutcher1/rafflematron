@@ -6,6 +6,6 @@ class WinnersController < ApplicationController
   def winner
     @entries = Entry.where(:raffle_id => params[:raffle_id])
     grand_winner = 1 + rand(@entries.count)
-    puts @entries[grand_winner].name
+    @winner = @entries[grand_winner]
   end
 end

@@ -14,5 +14,6 @@ class EntriesController < ApplicationController
   def confirm
     @entry = Entry.find(@@entry_id)
     @entry.assign_attributes(:name => params[:name], :email => params[:email])
+    @entry.save
   end
 end
