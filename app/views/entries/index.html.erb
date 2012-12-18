@@ -2,7 +2,8 @@
 <html>
 <body>
 <%= @raffles.each do |r| %>
-<%= r.name %> <br />
+<%= r.name %> 
+<%= link_to "Enter", entries_enter_path(:raffle_id => r.id) %><br />
 <% end %>
 </body>
 </html>

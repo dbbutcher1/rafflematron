@@ -2,6 +2,8 @@
 <html>
 <head>
 <h1>Enter</h1>
+<p>Entry id: <%= @entry.id %></p>
+<p>Raffle id: <%= @entry.raffle_id %></p>
 </head>
 <body>
 <%= form_tag "/entries/confirm", :method => :post do %>

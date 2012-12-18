@@ -1,5 +1,8 @@
 Rafflematron::Application.routes.draw do
 
+  
+  match "winners/winner" => "winners#winner", :via => :get, :as => "winners_winner"
+
   match "raffle/name" => "raffle#name", :via => :get, :as => "raffle_name"
   match "raffle/type" => "raffle#type", :via => :post, :as => "raffle_type"
   match "raffle/prize" => "raffle#prize", :via => :post, :as => "raffle_prize"
@@ -7,6 +10,7 @@ Rafflematron::Application.routes.draw do
   match "entries/enter" => "entries#enter", :via => :get, :as => "entries_enter"
   match "entries/confirm" => "entries#confirm", :via => :post, :as => "entries_confirm"
 
+  resources :winners
   resources :raffle do
   end
 
