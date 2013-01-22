@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20121217163722) do
     t.string   "name"
     t.integer  "num_prizes"
     t.integer  "num_entries"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "raffle_owner"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "roles", :force => true do |t|

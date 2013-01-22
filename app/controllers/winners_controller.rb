@@ -1,6 +1,6 @@
 class WinnersController < ApplicationController
   def index
-    @raffles = Raffle.all
+    @raffles = Raffle.where(:raffle_owner => current_user.email)
   end
 
   def winner

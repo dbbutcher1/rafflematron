@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1><%= @raffle.name %></h1>
 <p>Unique id: <%= @raffle.id %></p>
 <p>Prizes: <%= @raffle.num_prizes %></p>
@@ -11,4 +12,5 @@
   <% end %>
   <br />
   <%= submit_tag("Finish") %>
+<% end %>
 <% end %>

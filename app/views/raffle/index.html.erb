@@ -4,6 +4,8 @@
     <h1>Hello</h1>
   </head>
   <body>
-    <a class = "btn" href = "raffle/name">Create >></a>
+    <% if user_signed_in? %>
+    <a class = "btn" href = "name">Create >></a>
+    <% end %>
   </body>
 </html>

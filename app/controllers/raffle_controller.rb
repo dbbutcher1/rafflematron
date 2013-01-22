@@ -11,6 +11,7 @@ class RaffleController < ApplicationController
     @raffle = Raffle.create!(params[:raffle])
     @@raffle_id = @raffle.id
     @raffle.num_prizes = 1
+    @raffle.raffle_owner = current_user.email
     @raffle.save
   end
 

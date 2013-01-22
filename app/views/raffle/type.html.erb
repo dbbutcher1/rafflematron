@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1><%= @raffle.name %></h1>
 <p> unique id: <%= @raffle.id %></p>
 <%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
@@ -5,4 +6,5 @@
   <%= r.text_field :num_prizes %> <br />
   <%= r.select(:num_entries, options_for_select(["1"], "1")) %> <br />
   <%= r.submit "Create" %>
+<% end %>
 <% end %>

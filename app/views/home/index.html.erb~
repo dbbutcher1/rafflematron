@@ -11,8 +11,8 @@
       </div>
       <div class = "row">
         <div class = "span3 offset1">
-          <h2>Another great test</h2>
-          <p>Brought to you by: <%= User.id %></p>        
+          <h2>Ongoing Raffles</h2>
+          <p></p>        
         </div>
         <div class = "span3 offset1">
           <h2>Create a Raffle</h2>

@@ -5,6 +5,7 @@ class CreateRaffles < ActiveRecord::Migration
       t.string :name
       t.integer :num_prizes
       t.integer :num_entries
+      t.string :raffle_owner
 
       t.timestamps
     end
