@@ -12,7 +12,9 @@
       <div class = "row">
         <div class = "span3 offset1">
           <h2>Ongoing Raffles</h2>
-          <p></p>        
+          <% if user_signed_in? %>
+          <p><a class = "btn" href = "../winners">Your Raffles</a></p>        
+          <% end %>
         </div>
         <div class = "span3 offset1">
           <h2>Create a Raffle</h2>
@@ -24,11 +26,7 @@
         </div>
         <div class = "span3 offset1">
           <h2>Enter Here</h2>
-          <% if user_signed_in? %>  
-          <p><a class = "btn" href = "../entries">Enter</a></p>
-          <% else %>
-          <p><a class = "btn" href = "../users/sign_in">Enter</a></p> 
-          <% end %>    
+          <p><a class = "btn" href = "../entries">Enter</a></p>   
         </div>
       </div>
     </div>

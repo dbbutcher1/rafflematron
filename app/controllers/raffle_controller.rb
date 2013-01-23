@@ -3,6 +3,13 @@ class RaffleController < ApplicationController
   def index
   end
 
+  def edit_complete
+  end
+
+  def show
+    @raffle = Raffle.find(params[:raffle_id])
+  end
+
   def name
     @raffle = Raffle.new
   end   

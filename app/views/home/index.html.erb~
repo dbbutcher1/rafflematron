@@ -17,7 +17,7 @@
         <div class = "span3 offset1">
           <h2>Create a Raffle</h2>
 	  <% if user_signed_in? %>
-          <p><a class = "btn" href = "#">Create Raffle</a></p>
+          <p><a class = "btn" href = "../raffle/">Create Raffle</a></p>
 	  <% else %>
 	  <p><a class = "btn" href = "../users/sign_in">Sign in</a></p>
 	  <% end %>
@@ -25,7 +25,7 @@
         <div class = "span3 offset1">
           <h2>Enter Here</h2>
           <% if user_signed_in? %>  
-          <p><a class = "btn" href = "#">Enter</a></p>
+          <p><a class = "btn" href = "../entries">Enter</a></p>
           <% else %>
           <p><a class = "btn" href = "../users/sign_in">Enter</a></p> 
           <% end %>    

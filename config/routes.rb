@@ -6,9 +6,12 @@ Rafflematron::Application.routes.draw do
   match "raffle/name" => "raffle#name", :via => :get, :as => "raffle_name"
   match "raffle/type" => "raffle#type", :via => :post, :as => "raffle_type"
   match "raffle/prize" => "raffle#prize", :via => :post, :as => "raffle_prize"
+  match "raffle/edit" => "raffle#edit", :via => :post, :as => "raffle_edit" 
   match "raffle/completed" => "raffle#completed", :via => :post, :as => "raffle_completed"
+  match "raffle/edit_complete" => "raffle#edit_complete", :via => :post, :as => "raffle_edit_complete"
   match "entries/enter" => "entries#enter", :via => :get, :as => "entries_enter"
   match "entries/confirm" => "entries#confirm", :via => :post, :as => "entries_confirm"
+
 
   resources :winners
   resources :raffle do

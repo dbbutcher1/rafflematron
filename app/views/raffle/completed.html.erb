@@ -8,6 +8,7 @@
 <p>Unique id: <%= @raffle.id %></p>
 <p>Number of prizes: <%= @raffle.num_prizes %></p>
 <p>Prize: <%= @prizes.prize %> <%= image_tag @prizes.photo.url(:thumb) %></p>
+<p><%= link_to "Your Raffles", winners_path %>
 <% end %>
 </body>
 </html>

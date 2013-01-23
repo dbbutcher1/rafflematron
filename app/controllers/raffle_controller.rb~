@@ -3,6 +3,13 @@ class RaffleController < ApplicationController
   def index
   end
 
+  def edit
+  end
+
+  def show
+    @raffle = Raffle.find(params[:raffle_id])
+  end
+
   def name
     @raffle = Raffle.new
   end   
@@ -11,6 +18,7 @@ class RaffleController < ApplicationController
     @raffle = Raffle.create!(params[:raffle])
     @@raffle_id = @raffle.id
     @raffle.num_prizes = 1
+    @raffle.raffle_owner = current_user.email
     @raffle.save
   end
 

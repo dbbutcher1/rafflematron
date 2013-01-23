@@ -17,10 +17,13 @@
       <li>
       <%= link_to 'Admin Panel', users_controller_users_path %>
       </li>
+    <% end %>
       <li>
 	<%= link_to 'Create Raffle', raffle_index_path %>
       </li>
-    <% end %>
+      <li>
+        <%= link_to 'Your Raffles', winners_path %>
+      </li>
   <% else %>
     <li>
     <%= link_to 'Sign up', new_user_registration_path %>

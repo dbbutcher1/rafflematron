@@ -1,4 +1,6 @@
+
 <%= @raffles.each do |r| %>
 <%= r.name %> 
-<%= link_to "Choose winner", winners_winner_path(:raffle_id => r.id) %><br />
+<%= link_to "Choose winner", winners_winner_path(:raffle_id => r.id) %> 
+<%= link_to "Edit", raffle_edit_path(:raffle_id => r.id) %><br />
 <% end %>
