@@ -1,8 +1,9 @@
-<%= form_for @raffle, :method => "post", :url => raffle_type_path do |f| %>
+<%= form_for @raffle, :method => "post", :url => raffle_edit_complete_path do |f| %>
   <%= f.label :name, "Name of raffle: " %>
   <%= f.text_field :name %> <br />
-  <%= f.label :num_prizes "Prizes" %>
+  <%= f.label :num_prizes, "Prizes" %>
   <%= f.text_field :num_prizes %>
-  <%= f.label :num_entries "Entries per person" %>
+  <%= f.label :num_entries, "Entries per person" %>
   <%= f.text_field :num_entries %>
+  <%= f.submit "Save" %>
 <% end %>

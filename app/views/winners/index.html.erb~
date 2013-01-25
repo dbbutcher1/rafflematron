@@ -1,6 +1,29 @@
-
-<%= @raffles.each do |r| %>
-<%= r.name %> 
-<%= link_to "Choose winner", winners_winner_path(:raffle_id => r.id) %> 
-<%= link_to "Edit", edit_raffle_path(:raffle_id => r.id) %><br />
-<% end %>
+<h1> Raffles </h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Entries</th>
+      <th>Winner</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+     </tr>
+   </thead>
+   <tbody>
+   <%= @raffles.each do |r| %> 
+     <tr>
+       <td><%= r.name %></td>
+       <td><%= r.entries.size %></td>
+       <% if r.has_winner == false %>
+       <td><%= link_to "Choose winner", winners_winner_path(:raffle_id => r.id) %></td>
+       <% else %>
+       <td><%= r.winner %>
+       <% end %>
+       <td><%= link_to "View", raffle_edit_complete_path(:raffle_id => r.id) %></td>
+       <td><%= link_to "Edit", edit_raffle_path(r) %></td>
+       <td><%= link_to "Delete", r, :method => :delete, :class => :destroy %></td>
+     </tr>
+    <% end %>
+   </tbody>
+</table> 

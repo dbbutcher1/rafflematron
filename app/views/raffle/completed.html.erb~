@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <% if user_signed_in? %>
 <h1><%= @raffle.name %></h1>
 <p>Unique id: <%= @raffle.id %></p>
 <p>Number of prizes: <%= @raffle.num_prizes %></p>
 <p>Prize: <%= @prizes.prize %> <%= image_tag @prizes.photo.url(:thumb) %></p>
+<p><%= link_to "Go to Your Raffles", winners_index_path, :class => "btn" %></p>
 <% end %>
-</body>
-</html>

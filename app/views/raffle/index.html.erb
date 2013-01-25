@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <h1>Hello</h1>
-  </head>
-  <body>
-    <% if user_signed_in? %>
-    <a class = "btn" href = "raffle/name">Create >></a>
-    <% end %>
-  </body>
-</html>
+<% if user_signed_in? %>
+<h1>Let's make a raffle</h1>
+<%= link_to "Create >>", raffle_name_path, :class => "btn" %>
+<% end %>

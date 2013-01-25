@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20121217163722) do
     t.integer  "num_prizes"
     t.integer  "num_entries"
     t.string   "raffle_owner"
+    t.boolean  "has_winner"
+    t.string   "winner"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

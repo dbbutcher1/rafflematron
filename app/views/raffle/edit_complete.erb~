@@ -1,3 +1,3 @@
 <h3>Name: <%= @raffle.name %> </h3>
 <p> Number of Prizes: <%= @raffle.num_prizes %> <br/> 
-    Number of Entries per Person: <%= @raffle.num_entries %> </p>
+    Number of Entries per Person: <%= @raffle.entries %> </p>
