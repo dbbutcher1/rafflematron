@@ -8,39 +8,23 @@ Rafflematron::Application.routes.draw do
   match "raffle/prize" => "raffle#prize", :via => :post, :as => "raffle_prize" 
   match "raffle/completed" => "raffle#completed", :via => :post, :as => "raffle_completed"
   match "raffle/view" => "raffle#view", :via => :get, :as => "raffle_view"
+  
   match "entries/enter" => "entries#enter", :via => :get, :as => "entries_enter"
   match "entries/confirm" => "entries#confirm", :via => :post, :as => "entries_confirm"
 
 
   resources :winners
-  resources :raffle do
-  end
-
+  resources :raffle
   resources :entries
 
-  get "user/index"
-
-  get "users_controller/users"
-
   devise_for :admins
-
   devise_for :users
-  devise_for :Users
-  resource :user
+  
+  scope "/admin" do
+    resources :users
+  end
 
-  get "users/index"
-
-  get "users/show"
-
-  get "users/_user"
-
-  get "user/signup"
-
-  get "user/login"
-
-  get "home/index"
-
-root :to=>"home#index"
+  root :to=>"home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,9 +1,11 @@
 class RaffleController < ApplicationController
-  @@raffle_id = 1
+  before_filter :authenticate_user!
+
   def index
   end
 
   def view
+    @raffle = Raffle.find(params[:raffle_id])
   end
 
   def update
@@ -23,7 +25,6 @@ class RaffleController < ApplicationController
 
   def type
     @raffle = Raffle.create!(params[:raffle])
-    @@raffle_id = @raffle.id
     @raffle.has_winner = false
     @raffle.num_prizes = 1
     @raffle.raffle_owner = current_user.email
@@ -31,18 +32,23 @@ class RaffleController < ApplicationController
   end
 
   def prize
-    @raffle = Raffle.find(@@raffle_id)
-    @raffle.assign_attributes(params[:raffle], params[:raffle])
-    @raffle.save 
+    @raffle = Raffle.find(params[:raffle][:id])
+    @raffle.update_attributes(params[:raffle])
+    @prizes = []
+    @raffle.num_prizes.times { @prizes << Prize.new }
   end 
   
   def completed
-    @raffle = Raffle.find(@@raffle_id)
-    @prizes = Prize.new
-    @prizes.prize = params[:prize]
-    @prizes.photo = params[:photo]
-    @prizes.save
-    @entry = Entry.create!(:raffle_id => @@raffle_id)
+    @raffle = Raffle.find(params[:raffle][:id])
+    @prizes = []
+    @raffle.num_prizes.times { @prizes << Prize.new }
+    params[:prize].each do |key, value|
+      puts value
+      @prizes[key.to_i].raffle_id = @raffle.id
+      @prizes[key.to_i].prize_name = value["prize_name"]
+      @prizes[key.to_i].prize_name = value["photo"]
+      @prizes[key.to_i].save
+    end
   end
 
   def destroy

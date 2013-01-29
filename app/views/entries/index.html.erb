@@ -1,9 +1,19 @@
-<!DOCTYPE html>
-<html>
-<body>
-<%= @raffles.each do |r| %>
-<%= r.name %> 
-<%= link_to "Enter", entries_enter_path(:raffle_id => r.id) %><br />
-<% end %>
-</body>
-</html>
+<h1>Raffles to Enter</h1>
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Enter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @raffles.each do |r| %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= r.id %></td>
+        <td><%= link_to "Enter", entries_enter_path(:raffle_id => r.id) %></td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>

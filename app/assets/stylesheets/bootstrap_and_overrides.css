@@ -1,0 +1,12 @@
+@import url("bootstrap.css");
+body { padding-top: 60px; }
+@import url("bootstrap-responsive.css");
+
+.form-horizontal .controls { 
+    margin-left: 20px;
+}
+
+.form-horizontal .control
+{
+   margin-left: 180px;
+}

@@ -1,11 +1,21 @@
-<%= form_for @raffle, :html => { :class => "well" } do |f| %>
-  <%= f.label :name, "Name of raffle: " %>
-  <%= f.text_field :name %> <br />
-  <%= f.label :num_prizes, "Prizes" %>
-  <%= f.text_field :num_prizes %>
-  <%= f.label :num_entries, "Entries per person" %>
-  <%= f.text_field :num_entries %> <br/>
-  <%= f.hidden_field :id %>
-  <!--<%= hidden_field_tag(:raffle_id, @raffle.id) %>-->
-  <%= f.submit "Save" %>
+<%= form_for @raffle, :html => { :class => "well span6 offset3 form-horizontal" } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, "Name of raffle:   ", :class => "control-label" %>
+    <%= f.text_field :name, :class => "controls" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :num_prizes, "Prizes:   ", :class => "control-label" %>
+    <%= f.text_field :num_prizes, :class => "controls" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :num_entries, "Entries per person:   ", :class => "control-label" %>
+    <%= f.text_field :num_entries, :class => "controls" %>
+  </div>
+  <div class="control-group">
+  <div class = "control">
+    <%= f.hidden_field :id %> <br/>
+    <%= f.submit "Save" %>
+  </div>
+  </div>
 <% end %>
+

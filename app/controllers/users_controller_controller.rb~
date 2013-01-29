@@ -4,7 +4,7 @@ class UsersControllerController < ApplicationController
   end
 
   def destroy
-    @user = Micropost.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|

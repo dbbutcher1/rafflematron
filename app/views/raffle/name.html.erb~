@@ -1,5 +1,12 @@
-<%= form_for @raffle, :method => "post", :url => raffle_type_path do |f| %>
-  <%= f.label :name, "Name of raffle: " %>
-  <%= f.text_field :name %> <br />
-  <%= f.submit "Create" %>
+<% if user_signed_in? %>
+<%= form_for @raffle, :method => "post", :url => raffle_type_path, :html => { :class => "well span6 offset3 form-horizontal" } do |f| %>
+  <div class "control-group"
+    <%= f.label :name, "Name of raffle: ", :class => "control-label" %>
+    <%= f.text_field :name, :required => true, :class => "controls" %>
+  </div>
+  <div class ="control-group">
+    <br />
+    <%= f.submit "Create", :class => "control" %>
+  </div>
+<% end %>
 <% end %>

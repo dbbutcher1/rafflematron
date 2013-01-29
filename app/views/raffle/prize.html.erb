@@ -1,16 +1,14 @@
-<% if user_signed_in? %>
-<h1><%= @raffle.name %></h1>
-<p>Unique id: <%= @raffle.id %></p>
-<p>Prizes: <%= @raffle.num_prizes %></p>
-<p>Entries: <%= @raffle.num_entries %></p>
-<%= form_tag "/raffle/completed", :method => "post", :multipart => true do %>
-  <% @raffle.num_prizes.times do |r| %>
-    <%= label_tag(:q, "Prize #{r+1}:") %>
-    <%= text_field_tag(:prize) %> <br />
-    <%= label_tag(:q, "Photo:") %>
-    <%= file_field_tag :photo %>
-  <% end %>
-  <br />
-  <%= submit_tag("Finish") %>
+<div class = "well span6 offset3 form-horizontal">
+  <div class = "control-group">
+    <div class = "control-label">
+      <h1><%= @raffle.name %></h1>
+    </div>
+  </div>
+<%= form_for @raffle, :method => :post, :url => raffle_completed_path, :html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :id %>
+  <%= render :partial => "prize", :collection => @prizes %>
+  <div class = "control-group">
+     <%= f.submit "Submit", :class => "control" %>
+   </div>
 <% end %>
-<% end %>
+</div>

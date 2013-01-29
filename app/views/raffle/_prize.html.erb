@@ -1,0 +1,10 @@
+<%= fields_for :prize do |p| %>
+<div class = "control-group">
+	<%= p.label "Prize #{ prize_counter + 1} Name: ", :class => "control-label" %>
+	<%= p.text_field :prize_name, :class => "controls", :required => true, :index => prize_counter %>
+</div>
+<div class = "control-group">
+	<%= p.label "Prize #{ prize_counter + 1} Photo: ", :class => "control-label" %>
+	<%= p.file_field :photo, :class => "controls", :index => prize_counter%>
+</div>
+<% end %>

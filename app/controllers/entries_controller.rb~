@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  @@entry_id = 1
+
   def index
     @raffles = Raffle.all
   end
@@ -8,11 +8,33 @@ class EntriesController < ApplicationController
     @entry = Entry.new
     @entry.raffle_id = params[:raffle_id]
     @entry.save
-    @@entry_id = @entry.id
   end
   
   def confirm
-    @entry = Entry.find(@@entry_id)
+    @entry = Entry.find(params[:id])
+    @raffle = Raffle.find(@entry.raffle_id)
+    
     @entry.assign_attributes(:name => params[:name], :email => params[:email])
+    @entry.save
+  end
+
+  def update
+    @entry = Entry.find(params[:entry][:id])
+    @entries = Entry.where(:raffle_id => @entry.raffle_id)
+    @raffle = Raffle.find(@entry.raffle_id)
+    isEntered = 0
+    puts params[:entry][:email]
+    @entries.each do |e|
+      if e.email == params[:entry][:email]
+        isEntered = isEntered + 1
+      end
+    end
+    
+    if isEntered > @raffle.num_entries
+      flash[:notice] = "Email already entered"
+      redirect_to index_path
+    else
+      @entry.update_attributes(params[:entry])
+    end
   end
 end

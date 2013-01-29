@@ -1,11 +1,18 @@
-<% if user_signed_in? %>
-<h1><%= @raffle.name %></h1>
-<p> unique id: <%= @raffle.id %></p>
-<%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
-  <%= r.label "How many prizes?" %>
-  <%= r.text_field :num_prizes %> <br />
-  <%= r.label "How many entries per person" %>
-  <%= r.select(:num_entries, options_for_select(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "1")) %> <br />
-  <%= r.submit "Create" %>
-<% end %>
-<% end %>
+<div class = "well span6 offset3 form-horizontal">
+  <h1><%= @raffle.name %></h1>
+  <p> unique id: <%= @raffle.id %></p>
+   <%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
+     <div class = "control-group">
+       <%= r.label :q, "How many prizes?", :class => "control-label" %>
+       <%= r.text_field :num_prizes, :class => "controls" %>
+     </div>
+     <div class = "control-group">
+       <%= r.label :q, "How many entries per person? (0 for unlimited)", :class => "control-label" %>
+       <%= r.text_field :num_entries, :value => "1", :class => "controls" %>
+     </div>
+     <div class = "control-group">
+       <%= r.hidden_field :id %>
+       <%= r.submit "Create", :class => "control" %>
+     </div>
+  <% end %>
+</div>
