@@ -3,7 +3,7 @@
 <p>Number of prizes: <%= @raffle.num_prizes %></p>
 <p><% @prizes.each do |prize| %>
      <%= prize.prize_name %>
-     <%= image_tag prize.photo.url(:thumb) %>
+     <%= image_tag prize.photo.url(:thumb) %> <br />
    <% end %>
 </p>
 

@@ -1,36 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-
-  <body>
-    <div class = "container">
-      <div class = "hero-unit">
-        <h1>The great rafflematron</h1>
-	     <p>This is for all of your raffle needs</p>
-      </div>
-      <div class = "row">
-        <div class = "span3 offset1">
-          <h2>Ongoing Raffles</h2>
-          <p></p>        
-        </div>
-        <div class = "span3 offset1">
-          <h2>Create a Raffle</h2>
-	  <% if user_signed_in? %>
-          <p><a class = "btn" href = "../raffle/">Create Raffle</a></p>
-	  <% else %>
-	  <p><a class = "btn" href = "../users/sign_in">Sign in</a></p>
-	  <% end %>
-        </div>
-        <div class = "span3 offset1">
-          <h2>Enter Here</h2>
-          <% if user_signed_in? %>  
-          <p><a class = "btn" href = "../entries">Enter</a></p>
-          <% else %>
-          <p><a class = "btn" href = "../users/sign_in">Enter</a></p> 
-          <% end %>    
-        </div>
+  <div class = "span3">
+    <div class = "hero-unit">
+      <h1>The great rafflematron</h1>
+        <p>This is for all of your raffle needs</p>
+     </div>
+     <div class = "row-fluid">
+       <div class = "span3 offset1">
+         <h2>Ongoing Raffles</h2>
+         <% if user_signed_in? %>
+           <p><a class = "btn" href = "../winners">Your Raffles</a></p>        
+         <% end %>
+       </div>
+       <div class = "span3 offset1">
+         <h2>Create a Raffle</h2>
+         <% if user_signed_in? %>
+           <p><a class = "btn" href = "../raffle/">Create Raffle</a></p>
+         <% else %>
+  	   <p><a class = "btn" href = "../users/sign_in">Sign in</a></p>
+         <% end %>
+       </div>
+       <div class = "span3 offset1">
+         <h2>Enter Here</h2>
+         <p><a class = "btn" href = "../entries">Enter</a></p>   
+       </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>

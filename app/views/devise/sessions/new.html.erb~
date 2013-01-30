@@ -1,0 +1,16 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "well span6 offset3 form-horizontal" } ) do |f| %>
+  <h2 class = "control">Sign in</h2>
+  <div class = "control-group"><%= f.label :email, :class => "control-label" %>
+  <%= f.email_field :email, :autofocus => true, :class => "controls" %></div>
+
+  <div class = "control-group"><%= f.label :password, :class => "control-label" %>
+  <%= f.password_field :password, :class => "controls" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class = "control-group"><%= f.check_box :remember_me, :class => "controls" %> <%= f.label :remember_me, :class => "control-label" %></div>
+  <% end -%>
+
+  <div class = "control-group"><%= f.submit "Sign in", :class => "control" %></div>
+
+  <p class = "control"><%= render "devise/shared/links" %></p>
+<% end %>

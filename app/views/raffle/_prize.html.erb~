@@ -1,10 +1,18 @@
-<%= fields_for :prize do |p| %>
+<div class = "fields">
+<%= fields_for :prize do |f| %>
 <div class = "control-group">
-	<%= p.label "Prize #{ prize_counter + 1} Name: ", :class => "control-label" %>
-	<%= p.text_field :prize_name, :class => "controls", :required => true, :index => prize_counter %>
+	<%= f.label "Prize #{ prize_counter + 1} Name: ", :class => "control-label" %>
+	<%= f.text_field :prize_name, :class => "controls", :required => true, :index => prize_counter, :value => @prizes[prize_counter].prize_name %>
 </div>
 <div class = "control-group">
-	<%= p.label "Prize #{ prize_counter + 1} Photo: ", :class => "control-label" %>
-	<%= p.file_field :photo, :class => "controls", :index => prize_counter%>
+	<%= f.label "Prize #{ prize_counter + 1} Photo: ", :class => "control-label", :value => @prizes[prize_counter].photo %>
+	<%= f.file_field :photo, :class => "controls", :index => prize_counter%>
 </div>
+  <div class = "control-group">
+    <% if @raffle.editing %>
+      <%= f.hidden_field :_destory, :index => prize_counter %>
+      <%= link_to_remove_fields "remove", f %>
+    <% end %> 
+  </div>
 <% end %>
+</div>
