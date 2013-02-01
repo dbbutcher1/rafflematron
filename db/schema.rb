@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130128181003) do
   end
 
   create_table "raffles", :force => true do |t|
+    t.string   "uri"
     t.string   "name"
     t.integer  "num_prizes"
     t.integer  "num_entries"

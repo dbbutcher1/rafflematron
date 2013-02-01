@@ -3,8 +3,8 @@
 //= require_self
 //= require_tree .
 
-function remove_fields(link, i) {
-  $(link).prev("input[type=hidden]").val(i);
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val(true);
   $(link).closest(".fields").hide();
 }
 

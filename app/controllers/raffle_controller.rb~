@@ -1,5 +1,6 @@
 class RaffleController < ApplicationController
   before_filter :authenticate_user!
+  helper RafflesHelper
 
   def index
   end
@@ -10,14 +11,20 @@ class RaffleController < ApplicationController
 
   def update
     @raffle = Raffle.find(params[:id])
-    @raffle.update_attributes(params[:raffle])
+    @raffle.num_entries = params[:raffle][:num_entries]
     @raffle.editing = false
     @prizes = Prize.where(:raffle_id => @raffle.id)
-    params[:prize].each do |key, value|
+    params[:raffle][:prize_attributes].each do |key, value|
       puts value
-      if value["_destory"] == "1"
+      if value[:_destroy] == "1"
         Prize.find(@prizes[key.to_i].id).destroy
-        @raffle.num_prizes = @raffle.num_prizes - 1
+        @raffle.save
+      elsif @prizes[key.to_i].nil?
+        prize = Prize.new
+        prize.raffle_id = @raffle.id
+        prize.prize_name = value["prize_name"]
+        prize.photo = value["photo"]
+        prize.save
       else
         @prizes[key.to_i].raffle_id = @raffle.id
         @prizes[key.to_i].prize_name = value["prize_name"]
@@ -25,6 +32,7 @@ class RaffleController < ApplicationController
         @prizes[key.to_i].save
       end
     end
+    @raffle.save
     flash[:notice] = "Edit complete"
     redirect_to winners_path
   end
@@ -51,15 +59,16 @@ class RaffleController < ApplicationController
   def prize
     @raffle = Raffle.find(params[:raffle][:id])
     @raffle.update_attributes(params[:raffle])
-    @prizes = []
-    @raffle.num_prizes.times { @prizes << Prize.new }
+    @raffle.num_prizes.times do
+      prize = @raffle.prize.build 
+    end
   end 
   
   def completed
     @raffle = Raffle.find(params[:raffle][:id])
     @prizes = []
     @raffle.num_prizes.times { @prizes << Prize.new }
-    params[:prize].each do |key, value|
+    params[:raffle][:prize_attributes].each do |key, value|
       puts value
       @prizes[key.to_i].raffle_id = @raffle.id
       @prizes[key.to_i].prize_name = value["prize_name"]

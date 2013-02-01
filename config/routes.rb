@@ -12,6 +12,8 @@ Rafflematron::Application.routes.draw do
   match "entries/enter" => "entries#enter", :via => :get, :as => "entries_enter"
   match "entries/confirm" => "entries#confirm", :via => :post, :as => "entries_confirm"
 
+  match "enter/:uri" => "enter#enter", :as => "enter"
+
 
   resources :winners
   resources :raffle

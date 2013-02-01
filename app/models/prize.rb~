@@ -1,5 +1,5 @@
 class Prize < ActiveRecord::Base
-  attr_accessible :prize, :photo
+  attr_accessible :prize, :photo, :raffle_id
   belongs_to :raffle
   has_attached_file :photo,
     :styles => { :thumb => "100x100#" }

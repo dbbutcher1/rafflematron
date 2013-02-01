@@ -1,18 +1,22 @@
 <div class = "fields">
-<%= fields_for :prize do |f| %>
-<div class = "control-group">
-	<%= f.label "Prize #{ prize_counter + 1} Name: ", :class => "control-label" %>
-	<%= f.text_field :prize_name, :class => "controls", :required => true, :index => prize_counter, :value => @prizes[prize_counter].prize_name %>
-</div>
-<div class = "control-group">
-	<%= f.label "Prize #{ prize_counter + 1} Photo: ", :class => "control-label", :value => @prizes[prize_counter].photo %>
-	<%= f.file_field :photo, :class => "controls", :index => prize_counter %>
-</div>
   <div class = "control-group">
-    <% if @raffle.editing %>
-      <%= f.hidden_field :_destory, :index => prize_counter %>
-      <%= link_to_remove_fields "remove", f %>
-    <% end %> 
+    <%= f.label "Prize Name: ", :class => "control-label" %>
+    <%= f.text_field :prize_name, :class => "controls", :required => true %>
   </div>
-<% end %>
+  <div class = "control-group">
+    <%= f.label "Prize Photo: ", :class => "control-label" %>
+    <%= f.file_field :photo, :class => "controls" %>
+  </div>
+  <% if f.object.photo.url.include? "missing.png" %>
+  <% else %>
+    <div class = "control-group">
+      <%= f.label "Current Photo: ", :class => "control-label" %>
+      <%= image_tag f.object.photo.url(:thumb), :class => "controls" %>
+    </div>
+  <% end %>
+  <% if @raffle.editing %>
+    <div class = "control-group">
+      <div class = "control"><%= link_to_remove_fields "remove", f %></div>
+    </div>
+  <% end %> 
 </div>

@@ -6,6 +6,7 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 gem 'paperclip', '~> 3.0'
+gem 'friendlyid'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -33,6 +34,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'prototype-rails', '3.2.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

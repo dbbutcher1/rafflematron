@@ -1,5 +1,6 @@
 <div class = "well span6 offset3 form-horizontal">
   <h1><%= @raffle.name %></h1>
+  <p><%= @raffle.uri %></p>
    <%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
      <div class = "control-group">
        <%= r.label :q, "How many prizes?", :class => "control-label" %>
@@ -11,7 +12,7 @@
      </div>
      <div class = "control-group">
        <%= r.hidden_field :id %>
-       <%= r.submit "Create", :class => "control" %>
+       <%= r.submit "Save", :class => "control" %>
      </div>
   <% end %>
 </div>

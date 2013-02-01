@@ -6,7 +6,9 @@
   </div>
 <%= form_for @raffle, :method => :post, :url => raffle_completed_path, :html => { :multipart => true } do |f| %>
   <%= f.hidden_field :id %>
-  <%= render :partial => "prize", :collection => @prizes %>
+  <%= f.fields_for :prize do |b| %>
+    <%= render "prize", :f => b %>
+  <% end %>
   <div class = "control-group">
      <%= f.submit "Submit", :class => "control" %>
    </div>

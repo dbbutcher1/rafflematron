@@ -8,6 +8,7 @@ class CreateRaffles < ActiveRecord::Migration
       t.string :raffle_owner
       t.boolean :has_winner
       t.string :winner
+      t.boolean :editing
 
       t.timestamps
     end
