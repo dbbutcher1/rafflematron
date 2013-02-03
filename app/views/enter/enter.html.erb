@@ -1,0 +1,24 @@
+<script>
+$("input[name=raffle[name]]").keypress( function() {alert("Test")} )
+</script>
+
+
+<div class = "well span6 offset3 form-horizontal">
+<div class = "control-group">
+<h1 class = "control">Enter</h1>
+</div>
+<%= form_for @entry, :url => entries_confirm_path do |f| %>
+  <%= f.hidden_field :id %>
+  <div class = "control-group">
+    <%= f.label :q, "Name:", :class => "control-label" %>
+    <%= f.text_field :name, :required => true, :class => "controls" %> <br />
+  </div>
+  <div class = "control-group">
+    <%= f.label :r, "Email:", :class => "control-label" %>
+    <%= f.email_field :email, :required => true, :class => "controls" %> <br />
+  </div>
+  <div class = "control-group">
+    <%= f.submit "Enter", :class => "control" %>
+  </div>
+<% end %>
+</div>

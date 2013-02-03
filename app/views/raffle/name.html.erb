@@ -1,3 +1,7 @@
+<script>
+$(function() {$("input[id=raffle_name]").on("keyup", function() {$("input[id=raffle_uri]").val($("input[id=raffle_name]").val())} )});
+</script>
+
 <%= form_for @raffle, :method => "post", :url => raffle_type_path, :html => { :class => "well span6 offset3 form-horizontal" } do |f| %>
   <div class = "control-group">
     <%= f.label :name, "Name of raffle: ", :class => "control-label" %>
