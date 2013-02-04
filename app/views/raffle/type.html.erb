@@ -1,6 +1,5 @@
 <div class = "well span6 offset3 form-horizontal">
-  <h1><%= @raffle.name %></h1>
-  <p><%= @raffle.uri %></p>
+  <h1 class = "controls pagination-centered"><%= @raffle.name %></h1>
    <%= form_for @raffle, :method => :post, :url => raffle_prize_path do |r| %>
      <div class = "control-group">
        <%= r.label :q, "How many prizes?", :class => "control-label" %>

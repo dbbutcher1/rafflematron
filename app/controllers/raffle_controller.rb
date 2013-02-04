@@ -7,6 +7,7 @@ class RaffleController < ApplicationController
 
   def view
     @raffle = Raffle.find(params[:raffle_id])
+    @prizes = Prize.where(:raffle_id => @raffle.id)
   end
 
   def update
@@ -49,14 +50,27 @@ class RaffleController < ApplicationController
   def name
     @raffle = Raffle.new
   end   
-
+ 
   def type
-    @raffle = Raffle.create!(params[:raffle])
-    @raffle.editing = false
-    @raffle.has_winner = false
-    @raffle.num_prizes = 1
-    @raffle.raffle_owner = current_user.email
-    @raffle.save
+    begin
+      uri = params[:raffle][:uri]
+      if params[:raffle][:uri].gsub(/[^0-9a-zA-Z]/, "-") != uri
+        uri = uri.gsub(/[^0-9a-zA-Z]/, "-")
+      else
+        uri = params[:raffle][:uri]
+      end
+      @raffle = Raffle.create!(params[:raffle])
+      @raffle.editing = false
+      @raffle.has_winner = false
+      @raffle.num_prizes = 1
+      @raffle.raffle_owner = current_user.email
+      @raffle.uri = uri
+      @raffle.save
+    rescue Exception => e
+      flash[:error] = "URL Taken"
+      redirect_to raffle_name_path
+      puts e
+    end
   end
 
   def prize

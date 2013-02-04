@@ -1,4 +1,4 @@
-  <div class = "span3">
+  <div class = "span12">
     <div class = "hero-unit">
       <h1>The great rafflematron</h1>
         <p>This is for all of your raffle needs</p>
@@ -18,9 +18,7 @@
   	   <p><a class = "btn" href = "../users/sign_in">Sign in</a></p>
          <% end %>
        </div>
-       <div class = "span3 offset1">
-         <h2>Enter Here</h2>
-         <p><a class = "btn" href = "../entries">Enter</a></p>   
+       <div class = "span3 offset1">   
        </div>
       </div>
     </div>

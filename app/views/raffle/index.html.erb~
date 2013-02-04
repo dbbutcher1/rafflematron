@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
-<h1>Let's make a raffle"</h1>
-<%= link_to "Create >>", raffle_name_path, :class => "btn" %>
-<% end %>
+<div class = "well span6 offset3 form-horizontal">
+  <h1 class = "controls pagination-centered">Let's make a raffle</h1>
+  <%= link_to "Create >>", raffle_name_path, :class => "btn controls" %>
+</div>

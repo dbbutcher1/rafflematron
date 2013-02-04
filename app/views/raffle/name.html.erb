@@ -1,11 +1,24 @@
 <script>
-$(function() {$("input[id=raffle_name]").on("keyup", function() {$("input[id=raffle_uri]").val($("input[id=raffle_name]").val())} )});
+$(function() { 
+  $("input[id=raffle_name]").on("keyup", function() 
+    {
+      $("input[id=raffle_uri]").val(slug($("input[id=raffle_name]").val()))
+    } 
+)});
+
+var slug = function(str) {
+    var $slug = '';
+    var trimmed = $.trim(str);
+    $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    return $slug.toLowerCase();
+}
 </script>
 
 <%= form_for @raffle, :method => "post", :url => raffle_type_path, :html => { :class => "well span6 offset3 form-horizontal" } do |f| %>
+  <h1 class = "controls pagination-centered">Name Your Raffle</h1>
   <div class = "control-group">
-    <%= f.label :name, "Name of raffle: ", :class => "control-label" %>
-    <%= f.text_field :name, :required => true, :class => "controls" %>
+    <%= f.label :name, "Name of Raffle: ", :class => "control-label" %>
+    <%= f.text_field :name, :required => true, :class => "controls", :maxsize => "25" %>
   </div>
   <div class = "control-group">
     <%= f.label :uri, "URL: http://#{request.host}/enter/", :class => "control-label" %>

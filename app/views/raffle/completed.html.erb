@@ -1,10 +1,29 @@
-<h1><%= @raffle.name %></h1>
-<p>Unique id: <%= @raffle.id %></p>
-<p>Number of prizes: <%= @raffle.num_prizes %></p>
-<p><% @prizes.each do |prize| %>
-     <%= prize.prize_name %>
-     <%= image_tag prize.photo.url(:thumb) %> <br />
-   <% end %>
-</p>
-<%= link_to "Your Raffles", winners_path, :class => "btn" %>
+<div class = "well span6 offset3 form-horizontal">
+  <h1 class = "controls pagination-centered"><%= @raffle.name %></h1>
+  <dl class = "dl-horizontal">
+    <dt>Raffle ID</dt>
+    <dd><%= @raffle.id %></dd>
+    <dt>URL for Entry</dt>
+    <dd><%= request.host %>/enter/<%= @raffle.uri %></dd>
+    <dt>Entries Per Person</dt>
+    <% if @raffle.num_entries == 0 %>
+      <dd>Unlimited</dd>
+    <% else %>
+      <dd><%= @raffle.num_entries %></dd>
+    <% end %>
+    <dt>Number of Prizes</dt>
+    <dd><%= @raffle.num_prizes %></dd>
+  <dl>
 
+  <h3 class = "control">Prizes</h3>
+  <dl>
+    <% @prizes.each do |prize| %>
+      <dt>Prize Name</dt>
+      <dd><%= prize.prize_name %></dd>
+      <dt>Photo</dt>
+      <dd><%= image_tag prize.photo.url(:thumb) %></dd>
+    <% end %>
+  </dl>
+
+  <%= link_to "Your Raffles", winners_path, :class => "btn control" %>
+</div>

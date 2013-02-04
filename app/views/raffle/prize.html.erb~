@@ -1,13 +1,15 @@
 <div class = "well span6 offset3 form-horizontal">
   <div class = "control-group">
-    <div class = "control-label">
+    <div class = "controls">
       <h1><%= @raffle.name %></h1>
     </div>
   </div>
 <%= form_for @raffle, :method => :post, :url => raffle_completed_path, :html => { :multipart => true } do |f| %>
   <%= f.hidden_field :id %>
-  <%= f.fields_for :prize do |b| %>
-    <%= render :partial => "prize", :locals => { :f => b }, :collection => @prizes %>
+  <%= f.fields_for :prize do |b| %>	
+    <div class = "control_group">
+      <%= render :partial => "prize", :locals => { :f => b } %>
+    </div>
   <% end %>
   <div class = "control-group">
      <%= f.submit "Submit", :class => "control" %>
