@@ -1,5 +1,8 @@
 @import url("bootstrap.css");
 body { padding-top: 60px; }
+.navbar-inner {
+background-color: #000;
+}
 @import url("bootstrap-responsive.css");
 
 .form-horizontal .controls { 

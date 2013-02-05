@@ -7,9 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application_jquery" %>
+    <%= javascript_include_tag :application %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    <link rel = "shortcut icon" href = "../../assets/images/favicon.ico">
+    <link rel = "icon" type = "image/ico" href = "../../assets/images/favicon.ico">
   </head>
   <body>
     <header class="navbar navbar-fixed-top">
