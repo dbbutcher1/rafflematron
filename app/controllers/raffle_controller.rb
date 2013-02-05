@@ -26,6 +26,8 @@ class RaffleController < ApplicationController
         prize.prize_name = value["prize_name"]
         prize.photo = value["photo"]
         prize.save
+        @raffle.num_prizes += 1
+        @raffle.save
       else
         @prizes[key.to_i].raffle_id = @raffle.id
         if value["photo"].nil?

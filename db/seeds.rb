@@ -12,3 +12,21 @@ admin.password = "password"
 admin.password_confirmation = "password"
 admin.add_role(:admin)
 admin.save
+
+
+raffle = Raffle.new
+raffle.name = "Awesome Raffle"
+raffle.uri = "awesome-raffle"
+raffle.num_prizes = "2"
+raffle.num_entries = "1"
+raffle.raffle_owner = admin.email
+raffle.has_winner = false
+raffle.save
+
+3.times do
+entry = Entry.new
+entry.name = "David"
+entry.email = (0...8).map{65.+(rand(26)).chr}.join + "@email.com"
+entry.raffle_id = raffle.id
+entry.save
+end

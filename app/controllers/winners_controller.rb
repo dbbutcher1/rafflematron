@@ -8,11 +8,19 @@ class WinnersController < ApplicationController
   def winner
     @entries = Entry.where(:raffle_id => params[:raffle_id])
     @raffle = Raffle.find(params[:raffle_id])
-    grand_winner = 1 + rand(@entries.count)
-    @winner = @entries[grand_winner]
-    if @winner != nil
+    @winners = []
+    index = 0
+    @raffle.num_prizes.times do
+      begin
+        winner = 1 + rand(@entries.count)
+      end until @winners.include?(@entries[winner]) == false && @entries[winner] != nil
+      @winners[index] =  @entries[winner]
+      index += 1
+    end
+    
+    if @winners[0] != nil
       @raffle.has_winner = true
-      @raffle.winner = @winner.email
+      @raffle.winner = @winners[0].email
       @raffle.save
     else
       flash[:notice] = "No suitible entries found"
@@ -22,5 +30,15 @@ class WinnersController < ApplicationController
   
   def destroy
     Raffle.find(params[:id]).destroy
+  end
+
+  def check_winners(winners, new_winner)
+    if winners.include? new_winner
+      
+    else
+    end
+  end
+  
+  def new_winner
   end
 end

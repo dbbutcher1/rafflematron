@@ -1,3 +1,9 @@
-<h1>The winner is:</h1>
-<p><%= @winner.name %>, <%= @winner.email %></p>
-<%= @raffle.name %>
+<div class = "well span6 offset3 form-horizontal">
+  <h1 class = "controls pagination-centered">Winners</h1>
+  <dl class = "dl-horizontal">
+  <% @winners.each_with_index do |w, index| %>
+    <dt>Winner <%= index + 1%></dt>
+    <dd><%= w.email %></dd>
+  <% end %>
+  </dl>
+</div>
