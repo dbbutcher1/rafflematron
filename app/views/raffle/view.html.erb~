@@ -25,5 +25,5 @@
     <% end %>
   </dl>
 
-  <%= link_to "Go Back >>", winners_path, :class => "btn control" %>
+  <%= link_to "Go Back", winners_path, :class => "btn control" %>
 </div>

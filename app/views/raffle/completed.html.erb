@@ -4,7 +4,7 @@
     <dt>Raffle ID</dt>
     <dd><%= @raffle.id %></dd>
     <dt>URL for Entry</dt>
-    <dd><%= request.host %>/enter/<%= @raffle.uri %></dd>
+    <dd>http://<%= request.host %>/enter/<%= @raffle.uri %></dd>
     <dt>Entries Per Person</dt>
     <% if @raffle.num_entries == 0 %>
       <dd>Unlimited</dd>
@@ -13,10 +13,6 @@
     <% end %>
     <dt>Number of Prizes</dt>
     <dd><%= @raffle.num_prizes %></dd>
-    <dt>Start Date</dt>
-    <dd><%= @raffle.start %></dd>
-    <dt>End Date</dt>
-    <dd><%= @raffle.end %></dd>
   <dl>
 
   <h3 class = "control">Prizes</h3>

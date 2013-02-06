@@ -38,7 +38,7 @@
          <td><%= link_to "Edit", edit_raffle_path(r) %></td>
          <td><%= link_to "Delete", r, :method => :delete, :class => :destroy %></td>
          <td><%= link_to "Download CSV", download_winner_path(:id => r.id) %></td>
-         <td><%= link_to "http://"+ request.host + enter_raffle_path(:uri => r.uri) %></td>
+         <td><%= link_to "http://"+ request.host + enter_raffle_path(:uri => r.uri),"http://"+ request.host + enter_raffle_path(:uri => r.uri) %></td>
        </tr>
       <% end %>
     <% end %>

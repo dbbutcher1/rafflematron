@@ -1,5 +1,6 @@
 class EnterController < ApplicationController
   def enter
+    current_user.log_out
     begin
       @raffle = Raffle.where(:uri => params[:uri])
       if @raffle[0].has_winner == true
@@ -15,6 +16,7 @@ class EnterController < ApplicationController
       flash[:error] = "Not Found"
       redirect_to :root
     end
+    render :layout => "enter"
   end
 
   def update
@@ -32,11 +34,11 @@ class EnterController < ApplicationController
     
     if isEntered > @raffle.num_entries && @raffle.num_entries != 0
       flash[:notice] = "Email already entered"
-      redirect_to root_path
+      redirect_to enter_raffle_path(:uri => @raffle.uri)
     else
       @entry.update_attributes(params[:entry])
       flash[:notice] = "Entered Successfully"
-      redirect_to root_path
+      redirect_to enter_raffle_path(:uri => @raffle.uri)
     end
   end
 end
