@@ -10,6 +10,8 @@ class CreateRaffles < ActiveRecord::Migration
       t.boolean :has_winner
       t.string :winner
       t.boolean :editing
+      t.datetime :start
+      t.datetime :end
 
       t.timestamps
     end

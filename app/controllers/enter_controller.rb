@@ -2,11 +2,16 @@ class EnterController < ApplicationController
   def enter
     begin
       @raffle = Raffle.where(:uri => params[:uri])
-      puts @raffle[0].name
-      @enter = Entry.new
-      @enter.raffle_id = @raffle[0].id
-      @enter.save
+      if @raffle[0].has_winner == true
+        flash[:error] = "Raffle has ended"
+        redirect_to :root
+      else
+        @enter = Entry.new
+        @enter.raffle_id = @raffle[0].id
+        @enter.save
+      end
     rescue Exception => e
+      puts e
       flash[:error] = "Not Found"
       redirect_to :root
     end

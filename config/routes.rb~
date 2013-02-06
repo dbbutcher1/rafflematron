@@ -16,7 +16,11 @@ Rafflematron::Application.routes.draw do
 
   resources :winners
   resources :raffle
-  resource :enter
+  resource :enter, :controller => "enter" do
+    member do
+      get :download
+    end
+  end
 
   devise_for :admins
   devise_for :users

@@ -1,5 +1,5 @@
 class Raffle < ActiveRecord::Base
-  attr_accessible :id, :name, :num_prizes, :num_entries, :raffle_owner, :uri
+  attr_accessible :id, :name, :num_prizes, :num_entries, :raffle_owner, :uri, :start, :end
   validates_uniqueness_of :uri, :case_sensitive => false
   has_many :prize
   has_many :entries

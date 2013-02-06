@@ -23,7 +23,7 @@ raffle.raffle_owner = admin.email
 raffle.has_winner = false
 raffle.save
 
-3.times do
+100.times do
 entry = Entry.new
 entry.name = "David"
 entry.email = (0...8).map{65.+(rand(26)).chr}.join + "@email.com"

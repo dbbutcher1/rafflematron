@@ -14,7 +14,11 @@ Rafflematron::Application.routes.draw do
   
 
 
-  resources :winners
+  resources :winners do
+    member do
+      get :download
+    end
+  end
   resources :raffle
   resource :enter, :controller => "enter"
 

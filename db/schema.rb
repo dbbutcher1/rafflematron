@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20130128181003) do
     t.boolean  "has_winner"
     t.string   "winner"
     t.boolean  "editing"
+    t.datetime "start"
+    t.datetime "end"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

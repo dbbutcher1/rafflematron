@@ -4,7 +4,7 @@
     <dt>Raffle ID</dt>
     <dd><%= @raffle.id %></dd>
     <dt>URL for Entry</dt>
-    <dd><%= request.url %>/enter/<%= @raffle.uri %></dd>
+    <dd><%= request.host %>/enter/<%= @raffle.uri %></dd>
     <dt>Entries Per Person</dt>
     <% if @raffle.num_entries == 0 %>
       <dd>Unlimited</dd>

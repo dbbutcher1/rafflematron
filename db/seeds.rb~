@@ -17,7 +17,7 @@ admin.save
 raffle = Raffle.new
 raffle.name = "Awesome Raffle"
 raffle.uri = "awesome-raffle"
-raffle.num_prizes = "1"
+raffle.num_prizes = "2"
 raffle.num_entries = "1"
 raffle.raffle_owner = admin.email
 raffle.has_winner = false
