@@ -34,20 +34,24 @@ class WinnersController < ApplicationController
 
   def download
     @raffle = Raffle.find(params[:id])
-    fname = Rails.root.to_s + "/app/assets/documents/" + current_user.email + "_entries.csv"
+    fname = Rails.root.to_s + "/tmp/" + current_user.email + "_entries.csv"
     if File.exists?(fname)
       File.delete(fname)
       @entries = Entry.where(:raffle_id => @raffle.id)
       File.open(fname, "a") do |file|
         @entries.each_with_index do |e, index|
-          file.puts @entries[index].name + "," + @entries[index].email
+          if @entries[index].name != nil || @entries[index].email != nil
+            file.puts @entries[index].name + "," + @entries[index].email
+          end
         end
       end
     else
       @entries = Entry.where(:raffle_id => @raffle.id)
       File.open(fname, "a") do |file|
         @entries.each_with_index do |e, index|
-          file.write(@entries[index].name + "," + @entries[index].email + ",")
+          if @entries[index].name != nil || @entries[index].email != nil
+            file.puts @entries[index].name + "," + @entries[index].email
+          end
         end
       end
     end

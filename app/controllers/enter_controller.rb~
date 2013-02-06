@@ -1,5 +1,6 @@
 class EnterController < ApplicationController
   def enter
+    current_user.sign_out
     begin
       @raffle = Raffle.where(:uri => params[:uri])
       if @raffle[0].has_winner == true
