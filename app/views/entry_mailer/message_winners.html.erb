@@ -1,0 +1,7 @@
+<h1>Congratulations <%= @user.name %>,</h1>
+
+<p> You've won <%= @user.prize %> from <%= @raffle.name %> </p>
+
+<% if @message != nil %>
+<p> Heres a message from the raffle owner: <%= @message %> </p>
+<% end %>

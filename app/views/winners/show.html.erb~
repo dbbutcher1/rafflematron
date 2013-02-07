@@ -1,3 +1,9 @@
+<style>
+.buttons {
+margin-left: 180px; 
+}
+</style>
+
 <div class = "well span6 offset3 form-horizontal">
   <h1 class = "controls pagination-centered">Winners</h1>
   <dl class = "dl-horizontal">
@@ -19,7 +25,7 @@
     </div>
   </div>
   <%= hidden_field_tag "id", @winners[0].raffle_id %>
-  <div class = "buttons">
+  <div class = "controls">
     <%= submit_tag "Send Emails", :name => "send" %>
     <%= submit_tag "Cancel", :name => "cancel" %>
   </div>

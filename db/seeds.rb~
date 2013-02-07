@@ -18,15 +18,24 @@ raffle = Raffle.new
 raffle.name = "Awesome Raffle"
 raffle.uri = "awesome-raffle"
 raffle.num_prizes = "2"
-raffle.num_entries = "1"
+raffle.num_entries = "0"
 raffle.raffle_owner = admin.email
 raffle.has_winner = false
 raffle.save
 
-3.times do
+2.times do
+prize = Prize.new
+prize.prize_name = (0...8).map{65.+(rand(26)).chr}.join
+prize.raffle_id = raffle.id
+prize.save
+end
+
+50.times do
 entry = Entry.new
 entry.name = "David"
 entry.email = (0...8).map{65.+(rand(26)).chr}.join + "@email.com"
+entry.email = "dbbutcher1@gmail.com"
 entry.raffle_id = raffle.id
+entry.confirmed = true
 entry.save
 end

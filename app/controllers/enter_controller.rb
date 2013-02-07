@@ -1,4 +1,9 @@
 class EnterController < ApplicationController
+  def show
+    @enter = Entry.where(:raffle_id => params[:id]).paginate(:page => params[:page], :per_page => 25)
+    render :layout => "application"
+  end  
+
   def enter
     sign_out current_user
     begin
@@ -20,12 +25,10 @@ class EnterController < ApplicationController
   end
 
   def update
-    @entry = Entry.find(params[:entry][:id])
-    puts @entry.id
-    @raffle = Raffle.find(@entry.raffle_id)
-    @entries = Entry.where(:raffle_id => @entry.raffle_id)
+    @enter = Entry.find(params[:entry][:id])
+    @raffle = Raffle.find(@enter.raffle_id)
+    @entries = Entry.where(:raffle_id => @enter.raffle_id)
     isEntered = 0
-    puts params[:entry][:email]
     @entries.each do |e|
       if e.email == params[:entry][:email]
         isEntered = isEntered + 1
@@ -36,7 +39,8 @@ class EnterController < ApplicationController
       flash[:notice] = "Email already entered"
       redirect_to enter_raffle_path(:uri => @raffle.uri)
     else
-      @entry.update_attributes(params[:entry])
+      @enter.update_attributes(params[:entry])
+      EntryMailer.registration_confirmation(@enter, @raffle, request).deliver
       flash[:notice] = "Entered Successfully"
       redirect_to enter_raffle_path(:uri => @raffle.uri)
     end

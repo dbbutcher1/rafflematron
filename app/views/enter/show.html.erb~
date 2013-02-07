@@ -1,0 +1,20 @@
+<table class = "table table-striped"
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @enter.each do |e| %>
+      <td><%= e.name %></td>
+      <td><%= e.email %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+    
+
+
+<%= will_paginate @enter %>

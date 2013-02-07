@@ -11,16 +11,20 @@ Rafflematron::Application.routes.draw do
 
   match "enter/complete" => "enter#complete", :via => :post, :as => "enter_complete"
   match "enter/:uri" => "enter#enter", :as => "enter_raffle"
+
+  match "confirm/:token" => "confirm#confirm", :via => :get, :as => "confirm_entry"
+
+  match "winners/send_mail" => "winners#send_mail", :via => :post, :as => "winner_send_mail"
   
 
 
-  resources :winners
-  resources :raffle
-  resource :enter, :controller => "enter" do
+  resources :winners do
     member do
       get :download
     end
   end
+  resources :raffle
+  resource :enter, :controller => "enter"
 
   devise_for :admins
   devise_for :users

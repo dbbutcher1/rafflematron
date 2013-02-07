@@ -17,6 +17,10 @@ ActiveRecord::Schema.define(:version => 20130128181003) do
     t.integer "raffle_id"
     t.string  "name"
     t.string  "email"
+    t.integer "token"
+    t.boolean "winner",    :default => false
+    t.string  "prize"
+    t.boolean "confirmed", :default => false
   end
 
   create_table "models", :force => true do |t|

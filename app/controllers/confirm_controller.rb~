@@ -1,0 +1,13 @@
+class ConfirmController < ApplicationController
+
+  def confirm
+    @user = Entry.where(:token => params[:token])
+    if @user.confirmed == true
+      flash[:notice] = "Already Confirmed"
+      redirect_to root_path
+    else
+      @user.confirmed = true
+      @user.save
+    end
+  end
+end

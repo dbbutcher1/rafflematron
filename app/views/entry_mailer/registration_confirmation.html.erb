@@ -1,0 +1,5 @@
+<p><%= @user.name %>, </p>
+
+<p>Thanks for entering <%= @raffle.name %>!</p>
+
+<p>Confirm your entry <%= link_to "http://" + @request.host_with_port + confirm_entry_path(:token => @user.token), "http://" + @request.host_with_port + confirm_entry_path(:token => @user.token) %></p>

@@ -7,6 +7,8 @@ gem 'cancan'
 gem 'rolify'
 gem 'paperclip', '~> 3.0'
 gem 'friendly_id'
+gem 'mail'
+gem 'will_paginate'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -10,7 +10,12 @@ Rafflematron::Application.routes.draw do
   match "raffle/view" => "raffle#view", :via => :get, :as => "raffle_view"
 
   match "enter/complete" => "enter#complete", :via => :post, :as => "enter_complete"
+  match "enter/show/:id" => "enter#show", :via => :get, :as => "enter_show"
   match "enter/:uri" => "enter#enter", :as => "enter_raffle"
+
+  match "confirm/:token" => "confirm#confirm", :via => :get, :as => "confirm_entry"
+
+  match "winners/send_mail" => "winners#send_mail", :via => :post, :as => "winner_send_mail"
   
 
 
